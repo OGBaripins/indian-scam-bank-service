@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 function paymentForm() {
   return (
-    <div className='formBox'>
+    <div className='formBox z4'>
         <form className='formStyle'>
 
             <label className='formlabelBox'>
@@ -21,9 +21,11 @@ function paymentForm() {
                 <h4 className='label'>Description</h4>
                 <input type="text" className='inputBox'/>
             </label>
-            <button className='submit'>
+            <motion.button className='submit' 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}>
                 <h4 className='submitText'>Submit</h4>
-            </button>
+            </motion.button>
         </form>
     </div>
   )

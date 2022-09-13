@@ -11,7 +11,7 @@
 }
 /*Utils*/
 .header{
-  background-color: #433E45;
+  background-color: #232124;
   height: 18%;
   width: 100%;
   display: flex;
@@ -19,12 +19,12 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  z-index: 1;
+  z-index: 10;
 	position: fixed;
 	top: 0;
 }
 .footerBox{
-  background-color: #433E45;
+  background-color: #232124;
   height: 10rem;
   width: 100%;
   display: flex;
@@ -33,10 +33,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   align-self: end;
+  z-index: 4;
 }
 .contentBox{
   background-color: #ffffff;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -48,11 +49,34 @@
   margin: 0;
 
 }
+video{
+  width: 100%;
+  height: 135%;
+  object-fit: cover;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+}
 /*Images*/
 .logo{
-  height: 100%;
+  height: 140%;
 
 }
+/*Z-Index*/
+.z1{
+  z-index: 1;
+}
+.z4{
+  z-index: 4;
+}
+/*Paddings*/
+.p0t{
+  padding-top: 0;
+}
+.p1b{
+  padding-bottom: 5%;
+}
+
 /*Texts*/
 .infoText{
   font-size: calc(12px + 0.390625vw);
@@ -74,7 +98,7 @@
 .submitText{
   font-size: calc(15px + 0.390625vw);
   font-weight: bolder;
-  color: #DDA448;
+  color: #ffb133;
   letter-spacing: 0.05rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   overflow:hidden;
@@ -88,7 +112,8 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #433E45;
   letter-spacing: 0.05rem;
-  padding: 4%;
+  padding-bottom: 4%;
+  padding-top: 4%;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
@@ -100,11 +125,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #433E45;
+  background-color: #232124ce;
+  backdrop-filter: blur(10px);
   height: 100%;
   width: 50%;
   border-radius: 1rem;
-  padding-top: 5%;
   padding-bottom: 5%;
 }
 .formStyle{
@@ -120,7 +145,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #DDA448;
+  background-color: #ffb133;
   height: 5rem;
   width: 80%;
   margin: 2.5%;
@@ -156,7 +181,7 @@
   text-decoration: none;
 }
 .submit:hover{
-  background-color: #DDA448;
+  background-color: #ffb133;
 }
 .submit:hover  .submitText{
   color: #433E45;
@@ -177,7 +202,7 @@
   padding: 1%;
   width: 20%;
   height: 10%;
-  background-color: #DDA448;
+  background-color: #ffb133;
   border-radius: 10%;
   position: fixed;
   top: 20px;

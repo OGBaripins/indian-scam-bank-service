@@ -2,17 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const loginForm = () => {
   return (
-    <form className='formBox'>
-        <label className='formlabelBox'>
-            <h4 className='label'>AccountId</h4>
-            <input type="text" className='inputBox'/>
+    <form className='formBox z4'>
+          <h4 className='p0t p1b titleText z4' style={{color:'#FFFFFF',paddingTop:0}}>Authentication</h4>
+        <label className='formlabelBox z4'>
+            <h4 className='label z4'>AccountId</h4>
+            <input type="text" className='inputBox z4'/>
         </label>
-        <label className='formlabelBox'>
-            <h4 className='label'>Password</h4>
-            <input type="text" className='inputBox'/>
+        <label className='formlabelBox z4'>
+            <h4 className='label z4'>Password</h4>
+            <input type="text" className='inputBox z4'/>
         </label>
-        <Link to="/" className='submit'>
-            <h4 className='submitText'>Login</h4>
+        <Link to="/" className='submit z4'>
+            <h4 className='submitText z4'>Login</h4>
         </Link>
     </form>
   )

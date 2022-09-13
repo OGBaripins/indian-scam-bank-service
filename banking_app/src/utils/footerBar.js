@@ -3,7 +3,7 @@ import React from 'react'
 function footerBar() {
   return (
     <div className='footerBox'>
-        <h1>Footer</h1>
+        <h4>Footer</h4>
     </div>
   )
 }
