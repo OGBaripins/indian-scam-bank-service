@@ -28,7 +28,7 @@
   height: 10rem;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -207,11 +207,59 @@ video{
   position: fixed;
   top: 20px;
   right: 30px;
-  z-index: 0;
+  z-index: 12;
 }
 .logoBox{
   width: 100%;
   height: 100%;
+}
+
+.popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+
+}
+
+.popup-inner{
+  position: relative;
+  padding: 32px;
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+  background-color: #fdfdfd79;
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.popupButton{
+  margin-top: 2rem;
+  display: flex;
+  height: 3rem;
+  width: 50%;
+  background-color: #0a0a0a9f;
+  border: 0rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+.popupButton:hover{
+  background-color: #ffb133;
+}
+.popupButton:hover  .submitText{
+  color: #433E45;
 }
 
 

@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import './App.css';
 import {
 	BrowserRouter as Router,
@@ -24,6 +24,10 @@ function App() {
                 path="/login"
                 element={<Login/>}
               />
+          <Route path='/exit' component={() => { 
+              window.location.href = 'https://www.youtube.com/watch?v=4Jui6Prje6o&ab_channel=MemesOutOfMyWorld'; 
+              return null;
+          }}/>
         </Routes>
         <FooterBar/>
       </Router>
