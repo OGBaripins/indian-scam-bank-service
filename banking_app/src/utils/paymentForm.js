@@ -1,12 +1,9 @@
-import React from 'react'
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import React, {useState } from 'react'
+import {motion} from 'framer-motion/dist/framer-motion'
 import PopMessage from '../utils/popMessage';
 function paymentForm(props) {
     let user = props
-    let isNotEnogh = false;
-  const checkIfAmount = (user) =>{
-    isNotEnogh=true
-  }
+    const [isNotEnough, setIsNotEnough] = useState(false)
 
   return (
     <div className='formBox z4'>
@@ -29,14 +26,15 @@ function paymentForm(props) {
                 <input type="text" className='inputBox'/>
             </label>
             <motion.button className='submit' 
-            onClick={checkIfAmount}
+            type="button"
+            onClick={() => {setIsNotEnough(true)}}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             >
                 <h4 className='submitText'>Submit</h4>
             </motion.button>
-            <PopMessage trigger = {isNotEnogh}>
-                <h3>My pop up</h3>
+            <PopMessage trigger = {isNotEnough}>
+                <h3 className='smallTitle' style={{color:"black"}}>My pop up</h3>
             </PopMessage>
         </form>
     </div>
