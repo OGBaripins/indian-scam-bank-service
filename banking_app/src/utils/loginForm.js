@@ -12,7 +12,7 @@ const loginForm = () => {
             <h4 className='label z4'>Password</h4>
             <input type="text" className='inputBox z4'/>
         </label>
-        <Link to="/" className='submit z4'>
+        <Link to="/" className='submit z4' >
             <h4 className='submitText z4'>Login</h4>
         </Link>
     </form>

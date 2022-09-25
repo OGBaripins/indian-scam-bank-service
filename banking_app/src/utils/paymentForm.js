@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import {motion} from 'framer-motion/dist/framer-motion'
 import PopMessage from '../utils/popMessage';
 import jsonData from './data.json';
@@ -35,7 +35,6 @@ function paymentForm(props) {
                 <h4 className='submitText'>Submit</h4>
             </motion.button>
             <PopMessage trigger = {isNotEnough}>
-                <h3 className='smallTitle' style={{color:"black"}}>My pop up</h3>
             </PopMessage>
         </form>
     </div>
