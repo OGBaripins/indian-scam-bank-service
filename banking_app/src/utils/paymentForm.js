@@ -1,9 +1,12 @@
 import React, {useEffect, useState } from 'react'
 import {motion} from 'framer-motion/dist/framer-motion'
 import PopMessage from '../utils/popMessage';
+import axios from 'axios';
 function paymentForm(props) {
     let user = props
     const [IsEnough, setIsEnough] = useState(false)
+    const redirectLinkGood = 'https://www.youtube.com/watch?v=_M52zaVv-8Y&ab_channel=wrktm'
+    const redirectLinkBad = 'https://www.youtube.com/watch?v=4Jui6Prje6o&ab_channel=MemesOutOfMyWorld'
 
     let userDetails = {
         "name": "Joker",
@@ -13,8 +16,18 @@ function paymentForm(props) {
     let infaNoVeikala = {
         "name": "Joker",
         "account": "LVHABA80085",
-        "amount": 500,
+        "amount": 200,
         "desc": "Melns trekns dildo turbo 3000"
+    }
+
+    const getCurrentDate = () =>{
+        let separator=''
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+
+        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
     }
 
     const [popupOpen, setPopupOpen] = useState(false)
@@ -27,11 +40,23 @@ function paymentForm(props) {
       },[]);
 
         const buttonHandler = () => {
-            setPopupOpen(true);
+            axios.post('/user', {
+                account_id: userDetails.id,
+                amount: infaNoVeikala.amount,
+                receiver_account_number: infaNoVeikala.account,
+                receiver_name: infaNoVeikala.name,
+                details: infaNoVeikala.desc,
+                transaction_date: getCurrentDate()
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                setIsEnough(false)
+                console.log(error);
+              });
+              setPopupOpen(true);
         }
-
-
-    console.log(IsEnough)
 
   return (
     <div className='formBox z4'>
@@ -61,14 +86,12 @@ function paymentForm(props) {
             >
                 <h4 className='submitText'>Submit</h4>
             </motion.button>
-<<<<<<< HEAD
-            <PopMessage trigger = {isNotEnough}>
-=======
-            <PopMessage trigger = {popupOpen}>
-                <h3 className='smallTitle' style={{color:"black"}}>My pop up</h3>
->>>>>>> 2b52a402af80ac5947d9096fba71e8d02e672540
-            </PopMessage>
         </form>
+        <PopMessage trigger = {popupOpen} link={IsEnough == true?redirectLinkGood:redirectLinkBad}>
+                {IsEnough == true?
+                    <h3 className='smallTitle' style={{color:"black"}}>Transaction successful!</h3>: 
+                    <h3 className='smallTitle' style={{color:"black"}}>Transaction failed!</h3>}
+        </PopMessage>
     </div>
   )
 }

@@ -51,7 +51,7 @@
 }
 video{
   width: 100%;
-  height: 135%;
+  height: 135vh;
   object-fit: cover;
   position: absolute;
   overflow: hidden;
@@ -84,6 +84,7 @@ video{
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
+  padding-bottom: 1vh;
 }
 .smallTitle{
   font-size: calc(15px + 0.390625vw);
@@ -127,7 +128,8 @@ video{
   align-items: center;
   background-color: #232124ce;
   backdrop-filter: blur(10px);
-  height: 100%;
+  height: 70vh;
+  padding: 5vh;
   width: 50%;
   border-radius: 1rem;
   padding-bottom: 5%;
@@ -166,7 +168,15 @@ video{
   width: 80%;
   border-radius: 0.5rem;
   border-color: #433E45;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  font-weight: 800;
 
+}
+.inputBox:disabled{
+  background-color: #ffffff;
 }
 .submit{
   margin-top: 2rem;
@@ -200,7 +210,7 @@ video{
   display: flex;
   flex-direction: column;
   padding: 1%;
-  width: 20%;
+  width: 15%;
   height: 10%;
   background-color: #ffb133;
   border-radius: 10%;
@@ -219,7 +229,7 @@ video{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   justify-content: center;
@@ -230,10 +240,8 @@ video{
 
 .popup-inner{
   position: relative;
-  padding: 32px;
   height: 100%;
   width: 100%;
-  max-width: 640px;
   background-color: #fdfdfd79;
   backdrop-filter: blur(10px);
   z-index: 20;
@@ -241,6 +249,9 @@ video{
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border-radius: 1rem;
+
+
 
 }
 .popupButton{

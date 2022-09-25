@@ -6,7 +6,7 @@ const closeTab = () =>{
 }
 const PopMessage = (props) => {
     const [seconds, setSeconds] = useState(10);
-    const redirectLink = 'https://www.youtube.com/watch?v=4Jui6Prje6o&ab_channel=MemesOutOfMyWorld'
+    const redirectLink = props.link
 
     const redirect = () => {
         window.location.replace(redirectLink);
