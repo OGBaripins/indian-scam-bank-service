@@ -1,8 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import LoginForm from '../utils/loginForm'
 import anime from '../images/anime.mp4'
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 function login() {
+  const adminUser={
+    number: "111",
+    password: "admin"
+  }
+
+  const [user, setUser] = useState({number:""});
+  const [error, setError] = useState("");
+  
+  const Login = (details, e) =>{
+    console.log(details);
+    if(details.number == adminUser.number && details.password == adminUser.password){
+      setUser({number: details.number});
+      setError("");
+    }else{
+      e.preventDefault();
+      setError("Details do not match");
+    }
+  }
+
+  const Logout = details =>{
+    setUser({number:""});
+  }
+
   return (
     <motion.div className='contentBox'
     key = "form"
@@ -16,7 +39,8 @@ function login() {
         </video>
         <h1 className='titleText z4' style={{paddingBottom: 6}}>WELCOME TO</h1>
         <h1 className='titleText z4' style={{color:'#ffb133',fontSize:50,paddingTop:6}}>I S B S</h1>
-        <LoginForm />
+        
+        <LoginForm Login={Login} error={error}/>
 
     </motion.div>
   )
