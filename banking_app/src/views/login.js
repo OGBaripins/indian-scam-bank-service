@@ -3,29 +3,23 @@ import LoginForm from '../utils/loginForm'
 import anime from '../images/anime.mp4'
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 function login() {
-  const adminUser={
-    number: "111",
-    password: "admin"
+  const paymentInfo = {
+    receiverName: "",
+    receiverAccountNumber: "",
+    amount: "",
+    details: ""
   }
 
-  const [user, setUser] = useState({number:""});
-  const [error, setError] = useState("");
+  const queryParams = new URLSearchParams(window.location.search);
+
+  paymentInfo.receiverName = queryParams.get('accountName').replace("%"," ");
+  paymentInfo.receiverAccountNumber = queryParams.get('accountNumber');
+  paymentInfo.amount = queryParams.get('amount');
+  paymentInfo.details = queryParams.get('details').replace("%"," ");
+
+  const goodLink = queryParams.get('goodLink');
+  const badLink = queryParams.get('badLink');
   
-  const Login = (details, e) =>{
-    console.log(details);
-    if(details.number == adminUser.number && details.password == adminUser.password){
-      setUser({number: details.number});
-      setError("");
-    }else{
-      e.preventDefault();
-      setError("Details do not match");
-    }
-  }
-
-  const Logout = details =>{
-    setUser({number:""});
-  }
-
   return (
     <motion.div className='contentBox'
     key = "form"
@@ -40,7 +34,7 @@ function login() {
         <h1 className='titleText z4' style={{paddingBottom: 6}}>WELCOME TO</h1>
         <h1 className='titleText z4' style={{color:'#ffb133',fontSize:50,paddingTop:6}}>I S B S</h1>
         
-        <LoginForm Login={Login} error={error}/>
+        <LoginForm paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink}/>
 
     </motion.div>
   )
