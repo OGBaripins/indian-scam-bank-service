@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const loginForm = ({paymentInfo, goodLink, badLink}) => {
 
   const navigate = useNavigate();
-
   let user;
 
   const [details, setDetails] = useState({number:"",password:""});
@@ -49,7 +48,7 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
         </label>
         <Link to="/" className='submit z4' onClick={submitHandler}>
             <h4 className='submitText z4'>Login</h4>
-        </Link>
+        </button>
     </form>
   )
 }
