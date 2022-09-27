@@ -3,22 +3,13 @@ import {motion} from 'framer-motion/dist/framer-motion'
 import PopMessage from '../utils/popMessage';
 import axios from 'axios';
 function paymentForm(props) {
-    let user = props
+    
     const [IsEnough, setIsEnough] = useState(false)
-    const redirectLinkGood = 'https://www.youtube.com/watch?v=_M52zaVv-8Y&ab_channel=wrktm'
-    const redirectLinkBad = 'https://www.youtube.com/watch?v=4Jui6Prje6o&ab_channel=MemesOutOfMyWorld'
+    const redirectLinkGood = props.goodLink
+    const redirectLinkBad = props.badLink
 
-    let userDetails = {
-        "name": "Joker",
-        "amount": 1000,
-        "desc": "TESTING"
-    }
-    let infaNoVeikala = {
-        "name": "Joker",
-        "account": "LVHABA80085",
-        "amount": 200,
-        "desc": "Melns trekns dildo turbo 3000"
-    }
+    let userDetails = props.user
+    let paymentDetails = props.paymentInfo
 
     const getCurrentDate = () =>{
         let separator=''
@@ -32,7 +23,7 @@ function paymentForm(props) {
 
     const [popupOpen, setPopupOpen] = useState(false)
     useEffect(() => {
-        if(infaNoVeikala.amount < userDetails.amount){
+        if(paymentDetails.amount < userDetails.balance){
             {setIsEnough(true)}
         } else { 
             {setIsEnough(false)}
@@ -42,10 +33,10 @@ function paymentForm(props) {
         const buttonHandler = () => {
             axios.post('/user', {
                 account_id: userDetails.id,
-                amount: infaNoVeikala.amount,
-                receiver_account_number: infaNoVeikala.account,
-                receiver_name: infaNoVeikala.name,
-                details: infaNoVeikala.desc,
+                amount: paymentDetails.amount,
+                receiver_account_number: paymentDetails.receiverAccountNumber,
+                receiver_name: paymentDetails.receiverName,
+                details: paymentDetails.details,
                 transaction_date: getCurrentDate()
               })
               .then(function (response) {
@@ -64,19 +55,19 @@ function paymentForm(props) {
             
             <label className='formlabelBox'>
                 <h4 className='label'>Receiver name</h4>
-                <input type="text" className='inputBox' value={infaNoVeikala.name} disabled/>
+                <input type="text" className='inputBox' value={paymentDetails.receiverName} disabled/>
             </label>
             <label className='formlabelBox'>
                 <h4 className='label'>Receiver account</h4>
-                <input type="text" className='inputBox' value={infaNoVeikala.account} disabled/>
+                <input type="text" className='inputBox' value={paymentDetails.receiverAccountNumber} disabled/>
             </label>
             <label className='formlabelBox'>
                 <h4 className='label'>Amount</h4>
-                <input type="number" className='inputBox' value={infaNoVeikala.amount} disabled/>
+                <input type="number" className='inputBox' value={paymentDetails.amount} disabled/>
             </label>
             <label className='formlabelBox' >
                 <h4 className='label'>Description</h4>
-                <input type="text" className='inputBox' value={infaNoVeikala.desc} disabled/>
+                <input type="text" className='inputBox' value={paymentDetails.details} disabled/>
             </label>
             <motion.button className='submit' 
             type="button"

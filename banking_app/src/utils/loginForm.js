@@ -48,7 +48,7 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
         </label>
         <Link to="/" className='submit z4' onClick={submitHandler}>
             <h4 className='submitText z4'>Login</h4>
-        </button>
+        </Link>
     </form>
   )
 }
