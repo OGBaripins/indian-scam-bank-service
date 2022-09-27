@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const loginForm = ({paymentInfo, goodLink, badLink}) => {
+
+  const navigate = useNavigate();
 
   const adminUser = {
     number: "010101-11111",
@@ -23,6 +26,8 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
     });
     if(details.number == adminUser.number && details.password == adminUser.password){
       setUser({number: details.number});
+      console.log(user);
+      navigate("/");
       setError("");
     }else{
       e.preventDefault();
@@ -41,9 +46,9 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
             <h4 className='label z4'>Password</h4>
             <input className='inputBox z4' type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
         </label>
-        <Link to="/" className='submit z4' onClick={submitHandler} paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink}>
+        <button className='submit z4' onClick={submitHandler} paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink} user={user}>
             <h4 className='submitText z4'>Login</h4>
-        </Link>
+        </button>
     </form>
   )
 }

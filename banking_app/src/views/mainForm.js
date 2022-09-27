@@ -4,19 +4,20 @@ import PaymentForm from '../utils/paymentForm';
 import { Link } from "react-router-dom";
 import anime from '../images/anime.mp4'
 
-let user = {
-  "name":"test",
-  "surname":"test",
-  "amount":"850"
-}
-const mainForm = () => {
+
+const mainForm = (props) => {
+  let user = {
+    "name": "boig papa",
+    "surname":"test",
+    "amount":"850"
+  }
   return (
     <div className='contentBox'>
         <video className='videoBack' autoPlay loop mute>
           <source src={anime} type='video/mp4'/>
         </video>
         <h1 className='titleText z4'>Payment info</h1>
-        <PaymentForm user={user}/>
+        <PaymentForm props={props}/>
         <div className='accountBox'>
             <h4 className='smallTitle'>LVHABA21381723812</h4>
             <h4 className='infoText'>Name: {user.name}</h4>

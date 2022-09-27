@@ -87,8 +87,8 @@ function paymentForm(props) {
                 <h4 className='submitText'>Submit</h4>
             </motion.button>
         </form>
-        <PopMessage trigger = {popupOpen} link={IsEnough == true?redirectLinkGood:redirectLinkBad}>
-                {IsEnough == true?
+        <PopMessage trigger = {popupOpen} link={IsEnough === true?redirectLinkGood:redirectLinkBad}>
+                {IsEnough === true?
                     <h3 className='smallTitle' style={{color:"black"}}>Transaction successful!</h3>: 
                     <h3 className='smallTitle' style={{color:"black"}}>Transaction failed!</h3>}
         </PopMessage>
