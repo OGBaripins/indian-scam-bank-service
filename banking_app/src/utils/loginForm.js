@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import LoginError from './loginError';
 
 const loginForm = ({paymentInfo, goodLink, badLink}) => {
 
@@ -9,6 +10,7 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
   let user;
 
   const [details, setDetails] = useState({number:"",password:""});
+  const [isOpen, setIsOpen] = useState(false);
   
   const submitHandler = (e) =>{
     e.preventDefault();
@@ -30,8 +32,11 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
       }
     })
     .catch(function (response) {
-      //handle error
+      setIsOpen(true)
       console.log(response);
+      setTimeout(() => {
+        setIsOpen(false);
+        }, 5000);
     });
   }
 
@@ -49,6 +54,9 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
         <Link to="/" className='submit z4' onClick={submitHandler}>
             <h4 className='submitText z4'>Login</h4>
         </Link>
+        <LoginError trigger = {isOpen} isRunning={true}>
+          <h3 className='smallTitle' style={{color:"white"}}>Wrong Social-security Number/password</h3>
+        </LoginError>
     </form>
   )
 }

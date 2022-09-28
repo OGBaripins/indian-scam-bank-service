@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import LoginForm from '../utils/loginForm'
 import anime from '../images/anime.mp4'
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import {motion} from 'framer-motion/dist/framer-motion'
 function login() {
   const paymentInfo = {
     receiverName: "",
@@ -13,7 +13,7 @@ function login() {
   const queryParams = new URLSearchParams(window.location.search);
 
   paymentInfo.receiverName = queryParams.get('accountName').replace("%"," ");
-  paymentInfo.receiverAccountNumber = queryParams.get('accountNumber');
+  paymentInfo.receiverAccountNumber = queryParams.get('bankAccount');
   paymentInfo.amount = queryParams.get('amount');
   paymentInfo.details = queryParams.get('details').replace("%"," ");
 

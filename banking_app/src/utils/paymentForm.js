@@ -7,7 +7,7 @@ function paymentForm(props) {
     const [IsEnough, setIsEnough] = useState(false)
     const redirectLinkGood = props.goodLink
     const redirectLinkBad = props.badLink
-
+    console.log(props.paymentInfo)
     let userDetails = props.user
     let paymentDetails = props.paymentInfo
 
