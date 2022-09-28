@@ -8,10 +8,10 @@ import { useLocation } from 'react-router-dom';
 let user;
 const mainForm = () => {
   const location = useLocation();
-  user = location.state.user.user;
-  paymentInfo = location.state.paymentInfo.paymentInfo
-  goodLink = location.state.goodLink.goodLink
-  badLink = location.state.badLink.badLink
+  const user = location.state.user.user;
+  const paymentInfo = location.state.paymentInfo.paymentInfo
+  const goodLink = location.state.goodLink.goodLink
+  const badLink = location.state.badLink.badLink
   console.log(location);
   return (
     <div className='contentBox'>

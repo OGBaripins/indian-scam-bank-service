@@ -31,11 +31,12 @@ function paymentForm(props) {
       },[]);
 
         const buttonHandler = () => {
-            axios.post('/user', {
-                account_id: userDetails.id,
-                amount: paymentDetails.amount,
-                receiver_account_number: paymentDetails.receiverAccountNumber,
+            //insert into transactions (transaction_id, account_id, receiver_name, receiver_account_number, amount, details, transaction_date) 
+            axios.post('/transactions', {
+                account_id: userDetails.account_id,
                 receiver_name: paymentDetails.receiverName,
+                receiver_account_number: paymentDetails.receiverAccountNumber,
+                amount: paymentDetails.amount,
                 details: paymentDetails.details,
                 transaction_date: getCurrentDate()
               })
