@@ -29,7 +29,7 @@ const PopMessage = (props) => {
                 <h5 className='titleText' style={{color:'black'}}>Redirected in: {seconds}</h5>
                 {props.children}
                 <a className='popupButton z4' onClick={redirect} >
-                    <h4 className='submitText z4'>Back to wender</h4>
+                    <h4 className='submitText z4'>Back to vendor</h4>
                 </a>
             </div>
         </div>

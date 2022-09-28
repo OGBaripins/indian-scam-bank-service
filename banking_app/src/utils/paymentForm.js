@@ -12,14 +12,15 @@ function paymentForm(props) {
     let paymentDetails = props.paymentInfo
 
     const getCurrentDate = () =>{
-        let separator=''
+        let separator='-'
         let newDate = new Date()
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
 
-        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+        return `${year}-${month}-${date} 00:00:00`
     }
+    console.log(getCurrentDate());
 
     const [popupOpen, setPopupOpen] = useState(false)
     useEffect(() => {
@@ -32,11 +33,12 @@ function paymentForm(props) {
 
         const buttonHandler = () => {
             //insert into transactions (transaction_id, account_id, receiver_name, receiver_account_number, amount, details, transaction_date) 
-            axios.post('/transactions', {
+            console.log(`insert into transactions (${userDetails.account_id}, ${paymentDetails.receiverName}, ${paymentDetails.receiverAccountNumber}, ${paymentDetails.amount}, ${paymentDetails.details}, ${getCurrentDate()})`);
+            axios.post('http://127.0.0.1:5000/transactions', {
                 account_id: userDetails.account_id,
                 receiver_name: paymentDetails.receiverName,
                 receiver_account_number: paymentDetails.receiverAccountNumber,
-                amount: paymentDetails.amount,
+                amount: parseFloat(paymentDetails.amount),
                 details: paymentDetails.details,
                 transaction_date: getCurrentDate()
               })

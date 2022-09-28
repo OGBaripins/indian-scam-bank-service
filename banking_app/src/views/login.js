@@ -13,7 +13,7 @@ function login() {
   const queryParams = new URLSearchParams(window.location.search);
 
   paymentInfo.receiverName = queryParams.get('accountName').replace("%"," ");
-  paymentInfo.receiverAccountNumber = queryParams.get('bankAccount');
+  paymentInfo.receiverAccountNumber = queryParams.get('accountNumber');
   paymentInfo.amount = queryParams.get('amount');
   paymentInfo.details = queryParams.get('details').replace("%"," ");
 
