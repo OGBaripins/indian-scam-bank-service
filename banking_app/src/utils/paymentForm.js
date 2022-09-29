@@ -7,12 +7,11 @@ function paymentForm(props) {
     const [IsEnough, setIsEnough] = useState(false)
     const redirectLinkGood = props.goodLink
     const redirectLinkBad = props.badLink
-    console.log(props.paymentInfo)
+
     let userDetails = props.user
     let paymentDetails = props.paymentInfo
 
     const getCurrentDate = () =>{
-        let separator='-'
         let newDate = new Date()
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
@@ -20,7 +19,6 @@ function paymentForm(props) {
 
         return `${year}-${month}-${date} 00:00:00`
     }
-    console.log(getCurrentDate());
 
     const [popupOpen, setPopupOpen] = useState(false)
     useEffect(() => {
@@ -33,7 +31,6 @@ function paymentForm(props) {
 
         const buttonHandler = () => {
             //insert into transactions (transaction_id, account_id, receiver_name, receiver_account_number, amount, details, transaction_date) 
-            console.log(`insert into transactions (${userDetails.account_id}, ${paymentDetails.receiverName}, ${paymentDetails.receiverAccountNumber}, ${paymentDetails.amount}, ${paymentDetails.details}, ${getCurrentDate()})`);
             axios.post('http://127.0.0.1:5000/transactions', {
                 account_id: userDetails.account_id,
                 receiver_name: paymentDetails.receiverName,
@@ -43,11 +40,9 @@ function paymentForm(props) {
                 transaction_date: getCurrentDate()
               })
               .then(function (response) {
-                console.log(response);
               })
               .catch(function (error) {
                 setIsEnough(false)
-                console.log(error);
               });
               setPopupOpen(true);
         }

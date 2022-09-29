@@ -33,7 +33,6 @@ const loginForm = ({paymentInfo, goodLink, badLink}) => {
     })
     .catch(function (response) {
       setIsOpen(true)
-      console.log(response);
       setTimeout(() => {
         setIsOpen(false);
         }, 5000);

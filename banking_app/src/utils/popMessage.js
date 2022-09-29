@@ -17,7 +17,6 @@ const PopMessage = (props) => {
     }, [seconds])
 
     if(props.trigger == true){
-        console.log("hha")
         setTimeout(() => {
             window.location.replace(redirectLink);
         }, 10000)

@@ -12,7 +12,6 @@ const mainForm = () => {
   const paymentInfo = location.state.paymentInfo.paymentInfo
   const goodLink = location.state.goodLink.goodLink
   const badLink = location.state.badLink.badLink
-  console.log(location);
   return (
     <div className='contentBox'>
         <video className='videoBack' autoPlay loop mute>
