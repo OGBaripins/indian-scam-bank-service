@@ -18,7 +18,7 @@ const mainForm = () => {
           <source src={anime} type='video/mp4'/>
         </video>
         <h1 className='titleText z4'>Payment info</h1>
-        <PaymentForm user={user} paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink} />
+        <PaymentForm user={user} paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink}/>
         <div className='accountBox'>
             <h4 className='smallTitle'>LVHABA21381723812</h4>
             <h4 className='infoText'>Name: {user.first_name}</h4>

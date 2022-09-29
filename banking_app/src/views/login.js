@@ -31,8 +31,8 @@ function login() {
         <video className='videoBack' autoPlay loop mute>
           <source src={anime} type='video/mp4'/>
         </video>
-        <h1 className='titleText z4' style={{paddingBottom: 6}}>WELCOME TO</h1>
-        <h1 className='titleText z4' style={{color:'#ffb133',fontSize:50,paddingTop:6}}>I S B S</h1>
+        <h1 className='titleText z4' style={{paddingBottom: "3%"}}>WELCOME TO</h1>
+        <h1 className='titleText z4' style={{color:'#ffb133',fontSize:50,paddingBottom: "6%",paddingTop:"1%"}}>I S B S</h1>
         
         <LoginForm paymentInfo={paymentInfo} goodLink={goodLink} badLink={badLink}/>
 
