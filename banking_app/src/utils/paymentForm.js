@@ -16,8 +16,11 @@ function paymentForm(props) {
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
+        let hour = newDate.getHours();
+        let min = newDate.getMinutes();
+        let sec = newDate.getSeconds();
 
-        return `${year}-${month}-${date} 00:00:00`
+        return `${year}-${month}-${date} ${hour}:${min}:${sec}`
     }
 
     const [popupOpen, setPopupOpen] = useState(false)
